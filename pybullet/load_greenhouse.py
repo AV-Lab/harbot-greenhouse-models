@@ -6,9 +6,9 @@ import time
 import os
 
 class GreenhouseEnvironment:
-    def __init__(self):
+    def __init__(self, connection_mode=p.GUI):
         """Initialize PyBullet environment"""
-        self.physics_client = p.connect(p.GUI)
+        self.physics_client = p.connect(connection_mode)
         
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0, 0, -9.81)
@@ -25,14 +25,23 @@ class GreenhouseEnvironment:
         p.configureDebugVisualizer(p.COV_ENABLE_GUI, 1)
         
         self.model_ids = {}
-        self.urdf_path="./assets/greenhouse/urdf/"
+        self.repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+        self.greenhouse_urdf = os.path.join(
+            self.repo_root, "assets", "greenhouse", "greenhouse.urdf"
+        )
+        self.left_orange_urdf = os.path.join(
+            self.repo_root, "assets", "oranges", "orange_left", "orange_left.urdf"
+        )
+        self.right_orange_urdf = os.path.join(
+            self.repo_root, "assets", "oranges", "orange_right", "orange_right.urdf"
+        )
         
                 
     def load_greenhouse_structure(self):
         """Load the greenhouse floor, grass, and top structure"""
         try:
             greenhouse_id = p.loadURDF(
-                os.path.join(self.urdf_path, "greenhouse.urdf"),
+                self.greenhouse_urdf,
                 [0, 0, 0],
                 useFixedBase=True,
             )
@@ -72,8 +81,8 @@ class GreenhouseEnvironment:
     
     def load_oranges(self):
         """Load orange models in a grid pattern inside the greenhouse"""
-        left_urdf  = os.path.join(self.urdf_path, "orange_left.urdf")
-        right_urdf = os.path.join(self.urdf_path, "orange_right.urdf")
+        left_urdf = self.left_orange_urdf
+        right_urdf = self.right_orange_urdf
 
         self.model_ids.setdefault("oranges", {})
 
@@ -154,5 +163,3 @@ def main():
 
 if __name__ == "__main__":
     main() 
-    
-    

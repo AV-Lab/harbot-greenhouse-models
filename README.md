@@ -1,22 +1,18 @@
-# HARBOT Agri Simulation
+# HARBOT Greenhouse Models
 
-A collection of simulation environments, models, and assets for agricultural
-robotics research within the **HARBOT** project.
+A collection of greenhouse models and environment assets for agricultural robotics research within the HARBOT project.
 
-
-This repository currently contains a greenhouse environment used for simulation
-experiments in PyBullet and Gazebo.
-
-
+This repository provides reusable greenhouse and crop models that can be used in **PyBullet**, **Gazebo Sim**, and **Gazebo Classic**.
 
 ## PyBullet
+
 ![PyBullet greenhouse preview](media/greenhouse_pybullet_preview.gif)
 
 Install PyBullet:
 
 ```bash
 pip install pybullet
-````
+```
 
 Run the greenhouse simulation:
 
@@ -24,21 +20,53 @@ Run the greenhouse simulation:
 python pybullet/run_greenhouse.py
 ```
 
+> **Note:**  
+> To use the greenhouse environment in your own workspace, copy the `assets/` folder and use the script provided in the `pybullet/` directory.
 
-## Gazebo
-![Gazebo greenhouse preview](media/greenhouse_gazebo_preview.gif)
+## Gazebo Sim
 
+![Gazebo Sim greenhouse preview](media/greenhouse_gazebo_sim_preview.gif)
 
-A Gazebo world file is provided as an SDF.
-The SDF references the greenhouse URDF and adds basic world elements such as
-lighting.
+Use this for newer Gazebo releases (Ignition / Gazebo Sim, e.g. Fortress, Garden, Harmonic).
 
-The world file can be copied into an existing Gazebo project and used directly
-as a simulation world.
+From the repository root, set the resource path:
 
+```bash
+export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:$(pwd)
+```
 
-## Project
+Launch the world:
 
-This work is part of the **HARBOT** project and is intended for research and
-experimentation in agricultural robotics.
+```bash
+gz sim gazebo_sim/greenhouse_world.sdf
+```
 
+> **Note:**  
+> To use the greenhouse environment in your own simulation workspace, copy the `assets/` and `gazebo_sim/` folders into your workspace.
+
+## Gazebo Classic
+
+![Gazebo Classic greenhouse preview](media/greenhouse_gazebo_classic_preview.gif)
+
+Use this for Gazebo Classic (for example Gazebo 11).
+
+From the repository root,set model paths:
+
+```bash
+export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:$PWD/gazebo_classic/models
+```
+
+Launch the world:
+
+```bash
+gazebo gazebo_classic/greenhouse.world
+```
+
+If Gazebo hangs while loading models, disable online model fetching:
+
+```bash
+export GAZEBO_MODEL_DATABASE_URI=""
+```
+
+> **Note:**  
+> To use the greenhouse environment in your own simulation workspace, copy the `gazebo_classic/` folder into your workspace. The models already include the required meshes and textures.

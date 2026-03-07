@@ -1,0 +1,570 @@
+<?xml version="1.0"?>
+
+<sdf version="1.8">
+  <world name="greenhouse">
+
+    <plugin
+      filename="gz-sim-physics-system"
+      name="gz::sim::systems::Physics">
+    </plugin>
+    <plugin
+      filename="gz-sim-user-commands-system"
+      name="gz::sim::systems::UserCommands">
+    </plugin>
+    <plugin
+      filename="gz-sim-scene-broadcaster-system"
+      name="gz::sim::systems::SceneBroadcaster">
+    </plugin>
+    <plugin
+      filename="gz-sim-sensors-system"
+      name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin filename="gz-sim-imu-system"
+      name="gz::sim::systems::Imu">
+    </plugin>
+    <plugin
+      filename="gz-sim-navsat-system"
+      name="gz::sim::systems::NavSat">
+    </plugin>
+
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <world_frame_orientation>ENU</world_frame_orientation>
+      <latitude_deg>24.4189708</latitude_deg>
+      <longitude_deg>54.5010603</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0.0</heading_deg>
+    </spherical_coordinates>
+
+    <light name="sun" type="directional">
+      <cast_shadows>true</cast_shadows>
+      <pose>10 10 30 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 0.1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 0.1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.8 0.8 0.8 1</background>
+      <sky>
+        <sunset>6</sunset>
+        <clouds>
+          <speed>24</speed>
+        </clouds>
+      </sky>
+    </scene>
+
+    <light name="light_nw" type="point">
+      <pose>-4 7.6 5 0 0 0</pose>
+      <cast_shadows>false</cast_shadows>
+      <diffuse>0.9 0.9 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>20</range>
+        <constant>1.0</constant>
+        <linear>0.0</linear>
+        <quadratic>0.0</quadratic>
+      </attenuation>
+    </light>
+
+    <light name="light_n" type="point">
+      <pose>0 7.6 5 0 0 0</pose>
+      <cast_shadows>false</cast_shadows>
+      <diffuse>0.9 0.9 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>20</range>
+        <constant>1.0</constant>
+        <linear>0.0</linear>
+        <quadratic>0.0</quadratic>
+      </attenuation>
+    </light>
+
+    <light name="light_ne" type="point">
+      <pose>4 7.6 5 0 0 0</pose>
+      <cast_shadows>false</cast_shadows>
+      <diffuse>0.9 0.9 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>20</range>
+        <constant>1.0</constant>
+        <linear>0.0</linear>
+        <quadratic>0.0</quadratic>
+      </attenuation>
+    </light>
+
+    <!-- Bottom row -->
+    <light name="light_sw" type="point">
+      <pose>-4 -7.6 5 0 0 0</pose>
+      <cast_shadows>false</cast_shadows>
+      <diffuse>0.9 0.9 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>20</range>
+        <constant>1.0</constant>
+        <linear>0.0</linear>
+        <quadratic>0.0</quadratic>
+      </attenuation>
+    </light>
+
+    <light name="light_s" type="point">
+      <pose>0 -7.6 5 0 0 0</pose>
+      <cast_shadows>false</cast_shadows>
+      <diffuse>0.9 0.9 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>20</range>
+        <constant>1.0</constant>
+        <linear>0.0</linear>
+        <quadratic>0.0</quadratic>
+      </attenuation>
+    </light>
+
+    <light name="light_se" type="point">
+      <pose>4 -7.6 5 0 0 0</pose>
+      <cast_shadows>false</cast_shadows>
+      <diffuse>0.9 0.9 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>20</range>
+        <constant>1.0</constant>
+        <linear>0.0</linear>
+        <quadratic>0.0</quadratic>
+      </attenuation>
+    </light>
+
+    <include>
+      <uri>assets/greenhouse/greenhouse.urdf</uri>
+      <name>greenhouse</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+
+    <!-- oranges row 1 left -->
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange1.1.L</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange1.2.L</name>
+      <pose>0 3.6111 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange1.3.L</name>
+      <pose>0 7.2222 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange1.4.L</name>
+      <pose>0 10.8333 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange1.5.L</name>
+      <pose>0 14.4444 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange1.6.L</name>
+      <pose>0 18.0555 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange1.7.L</name>
+      <pose>0 21.6666 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange1.8.L</name>
+      <pose>0 25.2777 0 0 0 0</pose>
+    </include>
+
+    <!-- oranges row 1 right -->
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange1.1.R</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange1.2.R</name>
+      <pose>0 3.6111 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange1.3.R</name>
+      <pose>0 7.2222 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange1.4.R</name>
+      <pose>0 10.8333 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange1.5.R</name>
+      <pose>0 14.4444 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange1.6.R</name>
+      <pose>0 18.0555 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange1.7.R</name>
+      <pose>0 21.6666 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange1.8.R</name>
+      <pose>0 25.2777 0 0 0 0</pose>
+    </include>
+
+    <!-- oranges row 2 left -->
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange2.1.L</name>
+      <pose>4 0 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange2.2.L</name>
+      <pose>4 3.6111 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange2.3.L</name>
+      <pose>4 7.2222 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange2.4.L</name>
+      <pose>4 10.8333 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange2.5.L</name>
+      <pose>4 14.4444 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange2.6.L</name>
+      <pose>4 18.0555 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange2.7.L</name>
+      <pose>4 21.6666 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange2.8.L</name>
+      <pose>4 25.2777 0 0 0 0</pose>
+    </include>
+
+    <!-- oranges row 2 right -->
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange2.1.R</name>
+      <pose>4 0 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange2.2.R</name>
+      <pose>4 3.6111 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange2.3.R</name>
+      <pose>4 7.2222 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange2.4.R</name>
+      <pose>4 10.8333 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange2.5.R</name>
+      <pose>4 14.4444 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange2.6.R</name>
+      <pose>4 18.0555 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange2.7.R</name>
+      <pose>4 21.6666 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange2.8.R</name>
+      <pose>4 25.2777 0 0 0 0</pose>
+    </include>
+
+    <!-- oranges row 3 left -->
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange3.1.L</name>
+      <pose>8 0 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange3.2.L</name>
+      <pose>8 3.6111 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange3.3.L</name>
+      <pose>8 7.2222 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange3.4.L</name>
+      <pose>8 10.8333 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange3.5.L</name>
+      <pose>8 14.4444 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange3.6.L</name>
+      <pose>8 18.0555 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange3.7.L</name>
+      <pose>8 21.6666 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange3.8.L</name>
+      <pose>8 25.2777 0 0 0 0</pose>
+    </include>
+
+    <!-- oranges row 3 right -->
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange3.1.R</name>
+      <pose>8 0 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange3.2.R</name>
+      <pose>8 3.6111 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange3.3.R</name>
+      <pose>8 7.2222 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange3.4.R</name>
+      <pose>8 10.8333 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange3.5.R</name>
+      <pose>8 14.4444 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange3.6.R</name>
+      <pose>8 18.0555 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange3.7.R</name>
+      <pose>8 21.6666 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange3.8.R</name>
+      <pose>8 25.2777 0 0 0 0</pose>
+    </include>
+
+    <!-- oranges row 4 left -->
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange4.1.L</name>
+      <pose>12 0 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange4.2.L</name>
+      <pose>12 3.6111 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange4.3.L</name>
+      <pose>12 7.2222 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange4.4.L</name>
+      <pose>12 10.8333 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange4.5.L</name>
+      <pose>12 14.4444 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange4.6.L</name>
+      <pose>12 18.0555 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange4.7.L</name>
+      <pose>12 21.6666 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
+      <name>orange4.8.L</name>
+      <pose>12 25.2777 0 0 0 0</pose>
+    </include>
+
+    <!-- oranges row 4 right -->
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange4.1.R</name>
+      <pose>12 0 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange4.2.R</name>
+      <pose>12 3.6111 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange4.3.R</name>
+      <pose>12 7.2222 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange4.4.R</name>
+      <pose>12 10.8333 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange4.5.R</name>
+      <pose>12 14.4444 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange4.6.R</name>
+      <pose>12 18.0555 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange4.7.R</name>
+      <pose>12 21.6666 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
+      <name>orange4.8.R</name>
+      <pose>12 25.2777 0 0 0 0</pose>
+    </include>
+
+  </world>
+</sdf>

@@ -1,0 +1,449 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+  <model name="greenhouse">
+    <!-- Probably an environment object, so mark as static -->
+    <static>true</static>
+
+    <!-- base_link -->
+    <link name="base_link">
+      <pose>0 0 0 0 0 0</pose>
+      <visual name="base_link_visual">
+        <pose>0 0 0 1.57079632679 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://greenhouse/meshes/greenhouse_floor.obj</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="base_link_collision">
+        <pose>0 0 0 1.57079632679 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://greenhouse/meshes/greenhouse_floor.obj</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>10.0</mass>
+        <inertia>
+          <ixx>1.0</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>1.0</iyy>
+          <iyz>0.0</iyz>
+          <izz>1.0</izz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <!-- front_link -->
+    <link name="front_link">
+      <pose>0 0 0 0 0 0</pose>
+      <visual name="front_link_visual">
+        <pose>0 0 0 1.57079632679 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://greenhouse/meshes/greenhouse_front.obj</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1.0 1.0 1.0 0.4</ambient>
+          <diffuse>1.0 1.0 1.0 0.4</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="front_link_collision">
+        <pose>0 0 0 1.57079632679 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://greenhouse/meshes/greenhouse_front.obj</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.1</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>0.1</iyy>
+          <iyz>0.0</iyz>
+          <izz>0.1</izz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <!-- back_link -->
+    <link name="back_link">
+      <pose>0 0 0 0 0 0</pose>
+      <visual name="back_link_visual">
+        <pose>0 0 0 1.57079632679 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://greenhouse/meshes/greenhouse_back.obj</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1.0 1.0 1.0 0.4</ambient>
+          <diffuse>1.0 1.0 1.0 0.4</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="back_link_collision">
+        <pose>0 0 0 1.57079632679 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://greenhouse/meshes/greenhouse_back.obj</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.1</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>0.1</iyy>
+          <iyz>0.0</iyz>
+          <izz>0.1</izz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <!-- grass_link -->
+    <link name="grass_link">
+      <pose>0 0 0 0 0 0</pose>
+      <visual name="grass_link_visual">
+        <pose>0 0 0 1.57079632679 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://greenhouse/meshes/greenhouse_grass.obj</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="grass_link_collision">
+        <pose>0 0 0 1.57079632679 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://greenhouse/meshes/greenhouse_grass.obj</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.1</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>0.1</iyy>
+          <iyz>0.0</iyz>
+          <izz>0.1</izz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <!-- pathway_link -->
+    <link name="pathway_link">
+      <pose>0 0 0 0 0 0</pose>
+      <visual name="pathway_link_visual">
+        <pose>0 0 0 1.57079632679 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://greenhouse/meshes/greenhouse_pathway.obj</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="pathway_link_collision">
+        <pose>0 0 0 1.57079632679 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://greenhouse/meshes/greenhouse_pathway.obj</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.1</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>0.1</iyy>
+          <iyz>0.0</iyz>
+          <izz>0.1</izz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <!-- stems_link -->
+    <link name="stems_link">
+      <pose>0 0 0 0 0 0</pose>
+      <visual name="stems_link_visual">
+        <pose>0 0 0 1.57079632679 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://greenhouse/meshes/greenhouse_stems.obj</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="stems_link_collision">
+        <pose>0 0 0 1.57079632679 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://greenhouse/meshes/greenhouse_stems.obj</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.1</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>0.1</iyy>
+          <iyz>0.0</iyz>
+          <izz>0.1</izz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <!-- orange_stem -->
+    <link name="orange_stem">
+      <pose>0 0 0 0 0 0</pose>
+      <visual name="orange_stem_visual">
+        <pose>0 0 0 1.57079632679 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://greenhouse/meshes/orange_stem.obj</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+      </visual>
+      <collision name="orange_stem_collision">
+        <pose>0 0 0 1.57079632679 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://greenhouse/meshes/orange_stem.obj</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.1</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>0.1</iyy>
+          <iyz>0.0</iyz>
+          <izz>0.1</izz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <!-- curve_top_link -->
+    <link name="curve_top_link">
+      <pose>0 0 0 0 0 0</pose>
+      <visual name="curve_top_link_visual">
+        <pose>0 0 0 1.57079632679 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://greenhouse/meshes/greenhouse_top_curve.obj</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1.0 1.0 1.0 0.4</ambient>
+          <diffuse>1.0 1.0 1.0 0.4</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="curve_top_link_collision">
+        <pose>0 0 0 1.57079632679 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://greenhouse/meshes/greenhouse_top_curve.obj</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.1</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>0.1</iyy>
+          <iyz>0.0</iyz>
+          <izz>0.1</izz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <!-- top_support_link -->
+    <link name="top_support_link">
+      <pose>0 0 0 0 0 0</pose>
+      <visual name="top_support_link_visual">
+        <pose>0 0 0 1.57079632679 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://greenhouse/meshes/greenhouse_top_support.obj</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+      </visual>
+      <collision name="top_support_link_collision">
+        <pose>0 0 0 1.57079632679 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://greenhouse/meshes/greenhouse_top_support.obj</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.1</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>0.1</iyy>
+          <iyz>0.0</iyz>
+          <izz>0.1</izz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <!-- door_link -->
+    <link name="door_link">
+      <pose>0 0 0 0 0 0</pose>
+      <visual name="door_link_visual">
+        <pose>0 0 0 1.57079632679 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://greenhouse/meshes/greenhouse_door.obj</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+      </visual>
+      <collision name="door_link_collision">
+        <pose>0 0 0 1.57079632679 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://greenhouse/meshes/greenhouse_door.obj</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.1</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>0.1</iyy>
+          <iyz>0.0</iyz>
+          <izz>0.1</izz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <!-- Fixed joints (as in URDF) -->
+    <joint name="base_to_front" type="fixed">
+      <parent>base_link</parent>
+      <child>front_link</child>
+      <pose>0 0 0 0 0 0</pose>
+    </joint>
+
+    <joint name="base_to_back" type="fixed">
+      <parent>base_link</parent>
+      <child>back_link</child>
+      <pose>0 0 0 0 0 0</pose>
+    </joint>
+
+    <joint name="base_to_grass" type="fixed">
+      <parent>base_link</parent>
+      <child>grass_link</child>
+      <pose>0 0 0 0 0 0</pose>
+    </joint>
+
+    <joint name="base_to_pathway" type="fixed">
+      <parent>base_link</parent>
+      <child>pathway_link</child>
+      <pose>0 0 0 0 0 0</pose>
+    </joint>
+
+    <joint name="base_to_stems" type="fixed">
+      <parent>base_link</parent>
+      <child>stems_link</child>
+      <pose>0 0 0 0 0 0</pose>
+    </joint>
+
+    <joint name="base_to_curve_top" type="fixed">
+      <parent>base_link</parent>
+      <child>curve_top_link</child>
+      <pose>0 0 0 0 0 0</pose>
+    </joint>
+
+    <joint name="base_to_top_support" type="fixed">
+      <parent>base_link</parent>
+      <child>top_support_link</child>
+      <pose>0 0 0 0 0 0</pose>
+    </joint>
+
+    <joint name="base_to_orange_stem" type="fixed">
+      <parent>base_link</parent>
+      <child>orange_stem</child>
+      <pose>0 0 0 0 0 0</pose>
+    </joint>
+
+    <joint name="base_to_door" type="fixed">
+      <parent>base_link</parent>
+      <child>door_link</child>
+      <pose>0 0 0 0 0 0</pose>
+    </joint>
+
+  </model>
+</sdf>
