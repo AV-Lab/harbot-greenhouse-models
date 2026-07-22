@@ -51,33 +51,6 @@
       <direction>-0.5 0.1 -0.9</direction>
     </light>
 
-    <model name="ground_plane">
-      <static>true</static>
-      <link name="link">
-        <collision name="collision">
-          <geometry>
-            <plane>
-              <normal>0 0 0.1</normal>
-              <size>100 100</size>
-            </plane>
-          </geometry>
-        </collision>
-        <visual name="visual">
-          <geometry>
-            <plane>
-              <normal>0 0 0.1</normal>
-              <size>100 100</size>
-            </plane>
-          </geometry>
-          <material>
-            <ambient>0.8 0.8 0.8 1</ambient>
-            <diffuse>0.8 0.8 0.8 1</diffuse>
-            <specular>0.8 0.8 0.8 1</specular>
-          </material>
-        </visual>
-      </link>
-    </model>
-
     <scene>
       <ambient>0.4 0.4 0.4 1</ambient>
       <background>0.8 0.8 0.8 1</background>
@@ -174,397 +147,3733 @@
       <pose>0 0 0 0 0 0</pose>
     </include>
 
-    <!-- oranges row 1 left -->
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange1.1.L</name>
-      <pose>0 0 0 0 0 0</pose>
-    </include>
+    <!-- Green exterior floor from the updated greenhouse model. -->
+    <model name="green_floor">
+      <static>true</static>
+      <link name="body">
+        <collision name="collision">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/greenhouse/meshes/greenhouse_green.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/greenhouse/meshes/greenhouse_green.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange1.2.L</name>
-      <pose>0 3.6111 0 0 0 0</pose>
-    </include>
+    <!-- Trees from greenhouse.world. -->
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange1.3.L</name>
-      <pose>0 7.2222 0 0 0 0</pose>
-    </include>
+    <model name="tree01_small">
+      <static>true</static>
+      <pose>-24.0 15.0 0 0 0 0.35</pose>
+      <link name="body">
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>gazebo_classic/models/small_tree/meshes/small_tree.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange1.4.L</name>
-      <pose>0 10.8333 0 0 0 0</pose>
-    </include>
+    <model name="tree02_large">
+      <static>true</static>
+      <pose>-23.0 -12.0 0 0 0 1.10</pose>
+      <link name="body">
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>gazebo_classic/models/large_tree/meshes/large_tree.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange1.5.L</name>
-      <pose>0 14.4444 0 0 0 0</pose>
-    </include>
+    <model name="tree03_large">
+      <static>true</static>
+      <pose>-17.0 22.0 0 0 0 -0.60</pose>
+      <link name="body">
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>gazebo_classic/models/large_tree/meshes/large_tree.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange1.6.L</name>
-      <pose>0 18.0555 0 0 0 0</pose>
-    </include>
+    <model name="tree04_small">
+      <static>true</static>
+      <pose>17.0 22.0 0 0 0 2.20</pose>
+      <link name="body">
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>gazebo_classic/models/small_tree/meshes/small_tree.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange1.7.L</name>
-      <pose>0 21.6666 0 0 0 0</pose>
-    </include>
+    <model name="tree05_large">
+      <static>true</static>
+      <pose>25.0 10.0 0 0 0 0.90</pose>
+      <link name="body">
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>gazebo_classic/models/large_tree/meshes/large_tree.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange1.8.L</name>
-      <pose>0 25.2777 0 0 0 0</pose>
-    </include>
+    <model name="tree06_small">
+      <static>true</static>
+      <pose>23.0 -13.0 0 0 0 -1.35</pose>
+      <link name="body">
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>gazebo_classic/models/small_tree/meshes/small_tree.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <!-- oranges row 1 right -->
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange1.1.R</name>
-      <pose>0 0 0 0 0 0</pose>
-    </include>
+    <model name="tree07_large">
+      <static>true</static>
+      <pose>19.0 -22.0 0 0 0 1.75</pose>
+      <link name="body">
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>gazebo_classic/models/large_tree/meshes/large_tree.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange1.2.R</name>
-      <pose>0 3.6111 0 0 0 0</pose>
-    </include>
+    <model name="tree08_small">
+      <static>true</static>
+      <pose>-16.0 -22.0 0 0 0 -0.25</pose>
+      <link name="body">
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>gazebo_classic/models/small_tree/meshes/small_tree.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange1.3.R</name>
-      <pose>0 7.2222 0 0 0 0</pose>
-    </include>
+    <model name="tree09_small">
+      <static>true</static>
+      <pose>-20.0 4.0 0 0 0 0.70</pose>
+      <link name="body">
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>gazebo_classic/models/small_tree/meshes/small_tree.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange1.4.R</name>
-      <pose>0 10.8333 0 0 0 0</pose>
-    </include>
+    <model name="tree10_large">
+      <static>true</static>
+      <pose>20.0 0.0 0 0 0 -0.85</pose>
+      <link name="body">
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>gazebo_classic/models/large_tree/meshes/large_tree.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange1.5.R</name>
-      <pose>0 14.4444 0 0 0 0</pose>
-    </include>
+    <model name="tree11_large">
+      <static>true</static>
+      <pose>3.0 22.0 0 0 0 -0.85</pose>
+      <link name="body">
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>gazebo_classic/models/large_tree/meshes/large_tree.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange1.6.R</name>
-      <pose>0 18.0555 0 0 0 0</pose>
-    </include>
+    <!-- Unloading stations from greenhouse.world. -->
+    <model name="unloading_station_b">
+      <static>true</static>
+      <pose>7.5 14.4 0.11 0 0 0</pose>
+      <link name="body">
+        <collision name="collision">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/greenhouse/meshes/unloading_station.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>2.0</mu>
+                <mu2>2.0</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/greenhouse/meshes/unloading_station.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange1.7.R</name>
-      <pose>0 21.6666 0 0 0 0</pose>
-    </include>
+    <model name="unloading_station_a">
+      <static>true</static>
+      <pose>-7.5 -14.4 0.11 0 0 0</pose>
+      <link name="body">
+        <collision name="collision">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/greenhouse/meshes/unloading_station.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>2.0</mu>
+                <mu2>2.0</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/greenhouse/meshes/unloading_station.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange1.8.R</name>
-      <pose>0 25.2777 0 0 0 0</pose>
-    </include>
+    <!-- Ripe and unripe oranges from greenhouse.world. -->
 
-    <!-- oranges row 2 left -->
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange2.1.L</name>
-      <pose>4 0 0 0 0 0</pose>
-    </include>
+    <model name="orange1.1.L.T">
+      <pose>-7.01416 -11.8646 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange2.2.L</name>
-      <pose>4 3.6111 0 0 0 0</pose>
-    </include>
+    <model name="orange1.1.L.B">
+      <pose>-6.94655 -12.4004 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange2.3.L</name>
-      <pose>4 7.2222 0 0 0 0</pose>
-    </include>
+    <model name="orange1.2.L.T">
+      <pose>-7.01416 -8.424029 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/unripe_orange/meshes/unripe_orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange2.4.L</name>
-      <pose>4 10.8333 0 0 0 0</pose>
-    </include>
+    <model name="orange1.2.L.B">
+      <pose>-6.94655 -8.959829 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange2.5.L</name>
-      <pose>4 14.4444 0 0 0 0</pose>
-    </include>
+    <model name="orange1.3.L.T">
+      <pose>-7.01416 -4.983458 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange2.6.L</name>
-      <pose>4 18.0555 0 0 0 0</pose>
-    </include>
+    <model name="orange1.3.L.B">
+      <pose>-6.94655 -5.519258 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange2.7.L</name>
-      <pose>4 21.6666 0 0 0 0</pose>
-    </include>
+    <model name="orange1.4.L.T">
+      <pose>-7.01416 -1.542887 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange2.8.L</name>
-      <pose>4 25.2777 0 0 0 0</pose>
-    </include>
+    <model name="orange1.4.L.B">
+      <pose>-6.94655 -2.078687 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <!-- oranges row 2 right -->
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange2.1.R</name>
-      <pose>4 0 0 0 0 0</pose>
-    </include>
+    <model name="orange1.5.L.T">
+      <pose>-7.01416 1.897684 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange2.2.R</name>
-      <pose>4 3.6111 0 0 0 0</pose>
-    </include>
+    <model name="orange1.5.L.B">
+      <pose>-6.94655 1.361884 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange2.3.R</name>
-      <pose>4 7.2222 0 0 0 0</pose>
-    </include>
+    <model name="orange1.6.L.T">
+      <pose>-7.01416 5.338255 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange2.4.R</name>
-      <pose>4 10.8333 0 0 0 0</pose>
-    </include>
+    <model name="orange1.6.L.B">
+      <pose>-6.94655 4.802455 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange2.5.R</name>
-      <pose>4 14.4444 0 0 0 0</pose>
-    </include>
+    <model name="orange1.7.L.T">
+      <pose>-7.01416 8.778826 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange2.6.R</name>
-      <pose>4 18.0555 0 0 0 0</pose>
-    </include>
+    <model name="orange1.7.L.B">
+      <pose>-6.94655 8.243026 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/unripe_orange/meshes/unripe_orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange2.7.R</name>
-      <pose>4 21.6666 0 0 0 0</pose>
-    </include>
+    <model name="orange1.8.L.T">
+      <pose>-7.01416 12.219397 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange2.8.R</name>
-      <pose>4 25.2777 0 0 0 0</pose>
-    </include>
+    <model name="orange1.8.L.B">
+      <pose>-6.94655 11.683597 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <!-- oranges row 3 left -->
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange3.1.L</name>
-      <pose>8 0 0 0 0 0</pose>
-    </include>
+    <model name="orange1.1.R.T">
+      <pose>-5.00881 -12.4271 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange3.2.L</name>
-      <pose>8 3.6111 0 0 0 0</pose>
-    </include>
+    <model name="orange1.1.R.B">
+      <pose>-5.07641 -11.8894 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange3.3.L</name>
-      <pose>8 7.2222 0 0 0 0</pose>
-    </include>
+    <model name="orange1.2.R.T">
+      <pose>-5.00881 -8.986529 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange3.4.L</name>
-      <pose>8 10.8333 0 0 0 0</pose>
-    </include>
+    <model name="orange1.2.R.B">
+      <pose>-5.07641 -8.448829 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange3.5.L</name>
-      <pose>8 14.4444 0 0 0 0</pose>
-    </include>
+    <model name="orange1.3.R.T">
+      <pose>-5.00881 -5.545958 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange3.6.L</name>
-      <pose>8 18.0555 0 0 0 0</pose>
-    </include>
+    <model name="orange1.3.R.B">
+      <pose>-5.07641 -5.008258 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange3.7.L</name>
-      <pose>8 21.6666 0 0 0 0</pose>
-    </include>
+    <model name="orange1.4.R.T">
+      <pose>-5.00881 -2.105387 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange3.8.L</name>
-      <pose>8 25.2777 0 0 0 0</pose>
-    </include>
+    <model name="orange1.4.R.B">
+      <pose>-5.07641 -1.567687 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/unripe_orange/meshes/unripe_orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <!-- oranges row 3 right -->
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange3.1.R</name>
-      <pose>8 0 0 0 0 0</pose>
-    </include>
+    <model name="orange1.5.R.T">
+      <pose>-5.00881 1.335184 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange3.2.R</name>
-      <pose>8 3.6111 0 0 0 0</pose>
-    </include>
+    <model name="orange1.5.R.B">
+      <pose>-5.07641 1.872884 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange3.3.R</name>
-      <pose>8 7.2222 0 0 0 0</pose>
-    </include>
+    <model name="orange1.6.R.T">
+      <pose>-5.00881 4.775755 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange3.4.R</name>
-      <pose>8 10.8333 0 0 0 0</pose>
-    </include>
+    <model name="orange1.6.R.B">
+      <pose>-5.07641 5.313455 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange3.5.R</name>
-      <pose>8 14.4444 0 0 0 0</pose>
-    </include>
+    <model name="orange1.7.R.T">
+      <pose>-5.00881 8.216326 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange3.6.R</name>
-      <pose>8 18.0555 0 0 0 0</pose>
-    </include>
+    <model name="orange1.7.R.B">
+      <pose>-5.07641 8.754026 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange3.7.R</name>
-      <pose>8 21.6666 0 0 0 0</pose>
-    </include>
+    <model name="orange1.8.R.T">
+      <pose>-5.00881 11.656897 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange3.8.R</name>
-      <pose>8 25.2777 0 0 0 0</pose>
-    </include>
+    <model name="orange1.8.R.B">
+      <pose>-5.07641 12.194597 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <!-- oranges row 4 left -->
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange4.1.L</name>
-      <pose>12 0 0 0 0 0</pose>
-    </include>
+    <model name="orange2.1.L.T">
+      <pose>-3.01416 -11.8646 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/unripe_orange/meshes/unripe_orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange4.2.L</name>
-      <pose>12 3.6111 0 0 0 0</pose>
-    </include>
+    <model name="orange2.1.L.B">
+      <pose>-2.94655 -12.4004 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange4.3.L</name>
-      <pose>12 7.2222 0 0 0 0</pose>
-    </include>
+    <model name="orange2.2.L.T">
+      <pose>-3.01416 -8.424029 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange4.4.L</name>
-      <pose>12 10.8333 0 0 0 0</pose>
-    </include>
+    <model name="orange2.2.L.B">
+      <pose>-2.94655 -8.959829 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange4.5.L</name>
-      <pose>12 14.4444 0 0 0 0</pose>
-    </include>
+    <model name="orange2.3.L.T">
+      <pose>-3.01416 -4.983458 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange4.6.L</name>
-      <pose>12 18.0555 0 0 0 0</pose>
-    </include>
+    <model name="orange2.3.L.B">
+      <pose>-2.94655 -5.519258 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange4.7.L</name>
-      <pose>12 21.6666 0 0 0 0</pose>
-    </include>
+    <model name="orange2.4.L.T">
+      <pose>-3.01416 -1.542887 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_left/orange_left.urdf</uri>
-      <name>orange4.8.L</name>
-      <pose>12 25.2777 0 0 0 0</pose>
-    </include>
+    <model name="orange2.4.L.B">
+      <pose>-2.94655 -2.078687 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <!-- oranges row 4 right -->
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange4.1.R</name>
-      <pose>12 0 0 0 0 0</pose>
-    </include>
+    <model name="orange2.5.L.T">
+      <pose>-3.01416 1.897684 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange4.2.R</name>
-      <pose>12 3.6111 0 0 0 0</pose>
-    </include>
+    <model name="orange2.5.L.B">
+      <pose>-2.94655 1.361884 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange4.3.R</name>
-      <pose>12 7.2222 0 0 0 0</pose>
-    </include>
+    <model name="orange2.6.L.T">
+      <pose>-3.01416 5.338255 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange4.4.R</name>
-      <pose>12 10.8333 0 0 0 0</pose>
-    </include>
+    <model name="orange2.6.L.B">
+      <pose>-2.94655 4.802455 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange4.5.R</name>
-      <pose>12 14.4444 0 0 0 0</pose>
-    </include>
+    <model name="orange2.7.L.T">
+      <pose>-3.01416 8.778826 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/unripe_orange/meshes/unripe_orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange4.6.R</name>
-      <pose>12 18.0555 0 0 0 0</pose>
-    </include>
+    <model name="orange2.7.L.B">
+      <pose>-2.94655 8.243026 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange4.7.R</name>
-      <pose>12 21.6666 0 0 0 0</pose>
-    </include>
+    <model name="orange2.8.L.T">
+      <pose>-3.01416 12.219397 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
-    <include>
-      <uri>assets/oranges/orange_right/orange_right.urdf</uri>
-      <name>orange4.8.R</name>
-      <pose>12 25.2777 0 0 0 0</pose>
-    </include>
+    <model name="orange2.8.L.B">
+      <pose>-2.94655 11.683597 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange2.1.R.T">
+      <pose>-1.00881 -12.4271 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange2.1.R.B">
+      <pose>-1.07641 -11.8894 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange2.2.R.T">
+      <pose>-1.00881 -8.986529 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange2.2.R.B">
+      <pose>-1.07641 -8.448829 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange2.3.R.T">
+      <pose>-1.00881 -5.545958 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange2.3.R.B">
+      <pose>-1.07641 -5.008258 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange2.4.R.T">
+      <pose>-1.00881 -2.105387 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange2.4.R.B">
+      <pose>-1.07641 -1.567687 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange2.5.R.T">
+      <pose>-1.00881 1.335184 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/unripe_orange/meshes/unripe_orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange2.5.R.B">
+      <pose>-1.07641 1.872884 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange2.6.R.T">
+      <pose>-1.00881 4.775755 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange2.6.R.B">
+      <pose>-1.07641 5.313455 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange2.7.R.T">
+      <pose>-1.00881 8.216326 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange2.7.R.B">
+      <pose>-1.07641 8.754026 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange2.8.R.T">
+      <pose>-1.00881 11.656897 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange2.8.R.B">
+      <pose>-1.07641 12.194597 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.1.L.T">
+      <pose>0.98584 -11.8646 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.1.L.B">
+      <pose>1.05345 -12.4004 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.2.L.T">
+      <pose>0.98584 -8.424029 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.2.L.B">
+      <pose>1.05345 -8.959829 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.3.L.T">
+      <pose>0.98584 -4.983458 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.3.L.B">
+      <pose>1.05345 -5.519258 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.4.L.T">
+      <pose>0.98584 -1.542887 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.4.L.B">
+      <pose>1.05345 -2.078687 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/unripe_orange/meshes/unripe_orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.5.L.T">
+      <pose>0.98584 1.897684 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.5.L.B">
+      <pose>1.05345 1.361884 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.6.L.T">
+      <pose>0.98584 5.338255 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.6.L.B">
+      <pose>1.05345 4.802455 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.7.L.T">
+      <pose>0.98584 8.778826 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.7.L.B">
+      <pose>1.05345 8.243026 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.8.L.T">
+      <pose>0.98584 12.219397 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.8.L.B">
+      <pose>1.05345 11.683597 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.1.R.T">
+      <pose>2.99119 -12.4271 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/unripe_orange/meshes/unripe_orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.1.R.B">
+      <pose>2.92359 -11.8894 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.2.R.T">
+      <pose>2.99119 -8.986529 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.2.R.B">
+      <pose>2.92359 -8.448829 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.3.R.T">
+      <pose>2.99119 -5.545958 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.3.R.B">
+      <pose>2.92359 -5.008258 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.4.R.T">
+      <pose>2.99119 -2.105387 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.4.R.B">
+      <pose>2.92359 -1.567687 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.5.R.T">
+      <pose>2.99119 1.335184 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.5.R.B">
+      <pose>2.92359 1.872884 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.6.R.T">
+      <pose>2.99119 4.775755 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.6.R.B">
+      <pose>2.92359 5.313455 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.7.R.T">
+      <pose>2.99119 8.216326 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.7.R.B">
+      <pose>2.92359 8.754026 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/unripe_orange/meshes/unripe_orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.8.R.T">
+      <pose>2.99119 11.656897 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange3.8.R.B">
+      <pose>2.92359 12.194597 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.1.L.T">
+      <pose>4.98584 -11.8646 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.1.L.B">
+      <pose>5.05345 -12.4004 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.2.L.T">
+      <pose>4.98584 -8.424029 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.2.L.B">
+      <pose>5.05345 -8.959829 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.3.L.T">
+      <pose>4.98584 -4.983458 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.3.L.B">
+      <pose>5.05345 -5.519258 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.4.L.T">
+      <pose>4.98584 -1.542887 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/unripe_orange/meshes/unripe_orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.4.L.B">
+      <pose>5.05345 -2.078687 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.5.L.T">
+      <pose>4.98584 1.897684 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.5.L.B">
+      <pose>5.05345 1.361884 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.6.L.T">
+      <pose>4.98584 5.338255 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.6.L.B">
+      <pose>5.05345 4.802455 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.7.L.T">
+      <pose>4.98584 8.778826 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.7.L.B">
+      <pose>5.05345 8.243026 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.8.L.T">
+      <pose>4.98584 12.219397 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.8.L.B">
+      <pose>5.05345 11.683597 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.1.R.T">
+      <pose>6.99119 -12.4271 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.1.R.B">
+      <pose>6.92359 -11.8894 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.2.R.T">
+      <pose>6.99119 -8.986529 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/unripe_orange/meshes/unripe_orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.2.R.B">
+      <pose>6.92359 -8.448829 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.3.R.T">
+      <pose>6.99119 -5.545958 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.3.R.B">
+      <pose>6.92359 -5.008258 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.4.R.T">
+      <pose>6.99119 -2.105387 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.4.R.B">
+      <pose>6.92359 -1.567687 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.5.R.T">
+      <pose>6.99119 1.335184 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.5.R.B">
+      <pose>6.92359 1.872884 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.6.R.T">
+      <pose>6.99119 4.775755 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.6.R.B">
+      <pose>6.92359 5.313455 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.7.R.T">
+      <pose>6.99119 8.216326 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.7.R.B">
+      <pose>6.92359 8.754026 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.8.R.T">
+      <pose>6.99119 11.656897 1.44646 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/orange/meshes/orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="orange4.8.R.B">
+      <pose>6.92359 12.194597 1.04181 0 0 0</pose>
+      <link name="body">
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>2.45e-5</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.45e-5</iyy>
+            <iyz>0</iyz>
+            <izz>2.45e-5</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <pose>0 0 0 1.57079632679 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>assets/oranges/unripe_orange/meshes/unripe_orange.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
 
   </world>
 </sdf>

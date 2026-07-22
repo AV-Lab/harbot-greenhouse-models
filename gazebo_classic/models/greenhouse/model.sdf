@@ -38,6 +38,40 @@
         </inertia>
       </inertial>
     </link>
+    
+    <link name="greenhouse_link">
+      <pose>0 0 0 0 0 0</pose>
+      <visual name="greenhouse_link_visual">
+        <pose>0 0 0 1.57079632679 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://greenhouse/meshes/greenhouse_green.obj</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="greenhouse_link_collision">
+        <pose>0 0 0 1.57079632679 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://greenhouse/meshes/greenhouse_green.obj</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>10.0</mass>
+        <inertia>
+          <ixx>1.0</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>1.0</iyy>
+          <iyz>0.0</iyz>
+          <izz>1.0</izz>
+        </inertia>
+      </inertial>
+    </link>
 
     <!-- front_link -->
     <link name="front_link">
@@ -391,6 +425,12 @@
     </link>
 
     <!-- Fixed joints (as in URDF) -->
+    <joint name="base_to_greenhouse" type="fixed">
+      <parent>base_link</parent>
+      <child>greenhouse_link</child>
+      <pose>0 0 0 0 0 0</pose>
+    </joint>
+
     <joint name="base_to_front" type="fixed">
       <parent>base_link</parent>
       <child>front_link</child>

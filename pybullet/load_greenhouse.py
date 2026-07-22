@@ -4,12 +4,18 @@ import pybullet as p
 import pybullet_data
 import time
 import os
+import math
 
 class GreenhouseEnvironment:
     def __init__(self, connection_mode=p.GUI):
         """Initialize PyBullet environment"""
-        self.physics_client = p.connect(connection_mode)
-        
+        if connection_mode == p.GUI:
+            self.physics_client = p.connect(
+                connection_mode,
+                options="--width=1920 --height=1080",
+            )
+        else:
+            self.physics_client = p.connect(connection_mode)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0, 0, -9.81)
         p.loadURDF("plane.urdf", [0, 0, -0.1])
@@ -29,11 +35,35 @@ class GreenhouseEnvironment:
         self.greenhouse_urdf = os.path.join(
             self.repo_root, "assets", "greenhouse", "greenhouse.urdf"
         )
-        self.left_orange_urdf = os.path.join(
-            self.repo_root, "assets", "oranges", "orange_left", "orange_left.urdf"
+        self.green_floor_mesh = os.path.join(
+            self.repo_root,
+            "assets",
+            "greenhouse",
+            "meshes",
+            "greenhouse_green.obj",
         )
-        self.right_orange_urdf = os.path.join(
-            self.repo_root, "assets", "oranges", "orange_right", "orange_right.urdf"
+        self.unloading_station_mesh = os.path.join(
+            self.repo_root,
+            "assets",
+            "greenhouse",
+            "meshes",
+            "unloading_station.obj",
+        )
+        self.ripe_orange_mesh = os.path.join(
+            self.repo_root,
+            "assets",
+            "oranges",
+            "orange",
+            "meshes",
+            "orange.obj",
+        )
+        self.unripe_orange_mesh = os.path.join(
+            self.repo_root,
+            "assets",
+            "oranges",
+            "unripe_orange",
+            "meshes",
+            "unripe_orange.obj",
         )
         
                 
@@ -77,58 +107,147 @@ class GreenhouseEnvironment:
             
         except Exception as e:
             print(f"Warning: Could not load greenhouse structure: {e}")
-            
-    
-    def load_oranges(self):
-        """Load orange models in a grid pattern inside the greenhouse"""
-        left_urdf = self.left_orange_urdf
-        right_urdf = self.right_orange_urdf
 
+
+    def load_green_floor(self):
+        """Load the green floor mesh as a fixed visual and collision body."""
+        try:
+            mesh_orientation = p.getQuaternionFromEuler([math.pi / 2.0, 0, 0])
+            visual_shape = p.createVisualShape(
+                shapeType=p.GEOM_MESH,
+                fileName=self.green_floor_mesh,
+                meshScale=[1, 1, 1],
+                visualFrameOrientation=mesh_orientation,
+            )
+            collision_shape = p.createCollisionShape(
+                shapeType=p.GEOM_MESH,
+                fileName=self.green_floor_mesh,
+                meshScale=[1, 1, 1],
+                collisionFrameOrientation=mesh_orientation,
+            )
+            floor_id = p.createMultiBody(
+                baseMass=0,
+                baseCollisionShapeIndex=collision_shape,
+                baseVisualShapeIndex=visual_shape,
+                basePosition=[0, 0, 0],
+            )
+            self.model_ids["green_floor_id"] = floor_id
+            print("Loaded green floor")
+        except Exception as e:
+            print(f"Warning: Could not load green floor: {e}")
+
+
+    def load_unloading_stations(self):
+        """Load the two fixed unloading stations from greenhouse.world."""
+        self.model_ids.setdefault("unloading_stations", {})
+
+        try:
+            mesh_orientation = p.getQuaternionFromEuler([math.pi / 2.0, 0, 0])
+            visual_shape = p.createVisualShape(
+                shapeType=p.GEOM_MESH,
+                fileName=self.unloading_station_mesh,
+                meshScale=[1, 1, 1],
+                visualFrameOrientation=mesh_orientation,
+            )
+            collision_shape = p.createCollisionShape(
+                shapeType=p.GEOM_MESH,
+                fileName=self.unloading_station_mesh,
+                meshScale=[1, 1, 1],
+                collisionFrameOrientation=mesh_orientation,
+            )
+
+            station_poses = {
+                "unloading_station_b": [7.5, 14.4, 0.11],
+                "unloading_station_a": [-7.5, -14.4, 0.11],
+            }
+
+            for name, position in station_poses.items():
+                station_id = p.createMultiBody(
+                    baseMass=0,
+                    baseCollisionShapeIndex=collision_shape,
+                    baseVisualShapeIndex=visual_shape,
+                    basePosition=position,
+                )
+                p.changeDynamics(station_id, -1, lateralFriction=2.0)
+                self.model_ids["unloading_stations"][name] = station_id
+
+            print("Loaded 2 unloading stations")
+        except Exception as e:
+            print(f"Warning: Could not load unloading stations: {e}")
+
+
+    def load_oranges(self):
+        """Load the updated ripe and unripe orange layout without supports."""
         self.model_ids.setdefault("oranges", {})
 
-        x_start = 0.0
-        y_start = 0.0
-        dx = 4.0
-        dy = 3.6111
+        # orange1.1.L.T is the starting pose from greenhouse.world. The other
+        # three fruit positions on each plant are fixed offsets from it.
+        start_pose = (-7.01416, -11.8646, 1.44646)
+        plant_offsets = {
+            "L.T": (0.0, 0.0, 0.0),
+            "L.B": (0.06761, -0.5358, -0.40465),
+            "R.T": (2.00535, -0.5625, 0.0),
+            "R.B": (1.93775, -0.0248, -0.40465),
+        }
+        row_spacing = 4.0
+        column_spacing = 3.440571
 
-        num_rows = 4
-        num_cols = 8
+        unripe_names = {
+            "orange1.2.L.T",
+            "orange1.7.L.B",
+            "orange1.4.R.B",
+            "orange2.1.L.T",
+            "orange2.7.L.T",
+            "orange2.5.R.T",
+            "orange3.4.L.B",
+            "orange3.1.R.T",
+            "orange3.7.R.B",
+            "orange4.4.L.T",
+            "orange4.2.R.T",
+            "orange4.8.R.B",
+        }
 
-        for r in range(num_rows):
-            x = x_start + r * dx
+        mesh_orientation = p.getQuaternionFromEuler([math.pi / 2.0, 0, 0])
+        ripe_visual = p.createVisualShape(
+            shapeType=p.GEOM_MESH,
+            fileName=self.ripe_orange_mesh,
+            meshScale=[1, 1, 1],
+            visualFrameOrientation=mesh_orientation,
+        )
+        unripe_visual = p.createVisualShape(
+            shapeType=p.GEOM_MESH,
+            fileName=self.unripe_orange_mesh,
+            meshScale=[1, 1, 1],
+            visualFrameOrientation=mesh_orientation,
+        )
 
-            for c in range(num_cols):
-                y = y_start + c * dy
-                pos = [x, y, 0.0]
-
-                name_L = f"orange{r+1}.{c+1}.L"
-                name_R = f"orange{r+1}.{c+1}.R"
-
-                try:
-                    oid_L = p.loadURDF(
-                        left_urdf,
-                        pos,
-                        useFixedBase=True
+        for row in range(1, 5):
+            for column in range(1, 9):
+                for location, offset in plant_offsets.items():
+                    name = f"orange{row}.{column}.{location}"
+                    position = [
+                        start_pose[0] + offset[0] + (row - 1) * row_spacing,
+                        start_pose[1]
+                        + offset[1]
+                        + (column - 1) * column_spacing,
+                        start_pose[2] + offset[2],
+                    ]
+                    visual_shape = (
+                        unripe_visual if name in unripe_names else ripe_visual
                     )
-                    
-                    p.changeVisualShape(oid_L, -1, rgbaColor=[1.0, 1.0, 1.0, 1.0])
 
-                    self.model_ids["oranges"][name_L] = oid_L
-                except Exception as e:
-                    print(f"Warning: could not load {name_L}: {e}")
-
-                try:
-                    oid_R = p.loadURDF(
-                        right_urdf,
-                        pos,
-                        useFixedBase=True
-                    )
-                    
-                    p.changeVisualShape(oid_R, -1, rgbaColor=[1.0, 1.0, 1.0, 1.0])
-                    
-                    self.model_ids["oranges"][name_R] = oid_R
-                except Exception as e:
-                    print(f"Warning: could not load {name_R}: {e}")
+                    try:
+                        # A zero-mass body with no collision shape is unaffected
+                        # by gravity and cannot generate contacts.
+                        orange_id = p.createMultiBody(
+                            baseMass=0,
+                            baseCollisionShapeIndex=-1,
+                            baseVisualShapeIndex=visual_shape,
+                            basePosition=position,
+                        )
+                        self.model_ids["oranges"][name] = orange_id
+                    except Exception as e:
+                        print(f"Warning: could not load {name}: {e}")
 
         print(f"Loaded {len(self.model_ids['oranges'])} oranges")
         
@@ -144,6 +263,12 @@ def main():
     
     print("Loading greenhouse structure...")
     env.load_greenhouse_structure()
+
+    print("Loading green floor...")
+    env.load_green_floor()
+
+    print("Loading unloading stations...")
+    env.load_unloading_stations()
     
     print("Loading oranges...")
     env.load_oranges()
@@ -162,4 +287,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main() 
+    main()
