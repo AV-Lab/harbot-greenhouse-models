@@ -1,10 +1,12 @@
-# HARBOT Greenhouse Models
+# HARBOT Multi-Robot Task Planning
 
-Greenhouse models, simulation environments, and demonstration media developed for:
+Demonstration videos and greenhouse simulation models for the paper:
 
 **HARBOT: Uncertainty-Aware Multi-Robot Task Planning and Execution for Greenhouse Fruit Harvesting**
 
-The repository provides reusable greenhouse and crop assets for **Gazebo Classic**, **Gazebo Sim**, and **PyBullet**, together with demonstrations of the HARBOT planning–execution pipeline.
+The paper is under review; its citation will be added once it is published.
+
+The repository provides demonstrations of the HARBOT planning–execution pipeline, together with reusable greenhouse and crop assets for **Gazebo Classic**, **Gazebo Sim**, and **PyBullet**.
 
 ## Overview
 
@@ -19,7 +21,7 @@ The HARBOT architecture connects empirically grounded grasp uncertainty, RDDL/PR
 This edited demonstration shows how HARBOT converts high-level RDDL/PROST decisions into closed-loop multi-robot execution in Gazebo. It highlights:
 
 - Independent planning and execution sessions for two robots.
-- symbolic action dispatch through the planner–execution middleware.
+- Symbolic action dispatch through the planner–execution middleware.
 - Path-based navigation and shared-region collision avoidance.
 - RGB-D fruit detection and coordinate-frame transformation.
 - Collision-aware arm motion planning with MoveIt.
@@ -53,7 +55,7 @@ The browser-based monitoring interface visualizes the high-level RDDL/PROST acti
 
 **[Watch the full monitoring dashboard demo](https://www.dropbox.com/scl/fi/o6fkgn3ihllf1l7yktnsn/HARBOT-Task-Monitoring-Dashboard-Demo.mp4?rlkey=56ay5jxxg35rok242hh508seb&raw=1)**
 
-## Supported Simulation Environments
+## Greenhouse Models
 
 ### Gazebo Classic
 
